@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for the components */
+        body {
+            background-color: #adadad;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container-box {
+            background-color: #fff;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            margin-bottom : 50px;
+        }
+
+        .component-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .btn-add {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-add:hover {
+            background-color: #0056b3;
+        }
+        #component-title1{
+        background-color: rgb(163, 71, 48);
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: bolder;
+        }
+        #component-title2{
+        background-color: rgb(81, 126, 83);
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: bolder;
+        }
+        #component-title3{
+        background-color: rgb(65, 127, 163);
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: bolder;
+        }
+        .top-section {
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px;
+            padding: 10px 0;
+            margin-bottom: 20px; /* Add margin from the top */
+            width: 80%; /* Adjust the width as needed */
+        }
+
+        .top-section button {
+            margin: 0 10px; /* Add spacing between buttons */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top-section">
+        <button class="btn btn-primary">Discussion</button>
+        <button class="btn btn-primary">Task</button>
+        <button class="btn btn-primary">File</button>
+        <button class="btn btn-primary">Timeline</button>
+    </div>
+    <div class="container-box">
+        <h1 class="component-title" id="component-title1">To-Do List</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="taskInput1" placeholder="Add a task">
+            <div class="input-group-append">
+                <button class="btn btn-add" type="button" id="addTask1">Add</button>
+            </div>
+        </div>
+        <ul class="list-group" id="taskList1">
+            <!-- Tasks will be added here -->
+        </ul>
+    </div>
+
+    <div class="container-box">
+        <h1 class="component-title" id="component-title2">Doing</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="taskInput2" placeholder="Add a task">
+            <div class="input-group-append">
+                <button class="btn btn-add" type="button" id="addTask2">Add</button>
+            </div>
+        </div>
+        <ul class="list-group" id="taskList2">
+            <!-- Tasks will be added here -->
+        </ul>
+    </div>
+
+    <div class="container-box">
+        <h1 class="component-title" id="component-title3">Review</h1>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="taskInput3" placeholder="Add a task">
+            <div class="input-group-append">
+                <button class="btn btn-add" type="button" id="addTask3">Add</button>
+            </div>
+        </div>
+        <ul class="list-group" id="taskList3">
+            <!-- Tasks will be added here -->
+        </ul>
+    </div>
+
+    <!-- Link to Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for adding tasks
+        function addTaskToList(inputId, listId) {
+            const taskInput = document.getElementById(inputId);
+            const taskList = document.getElementById(listId);
+            const taskText = taskInput.value.trim();
+
+            if (taskText !== '') {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-group-item';
+                listItem.textContent = taskText;
+                taskList.appendChild(listItem);
+                taskInput.value = '';
+            }
+        }
+
+        document.getElementById('addTask1').addEventListener('click', function() {
+            addTaskToList('taskInput1', 'taskList1');
+        });
+
+        document.getElementById('addTask2').addEventListener('click', function() {
+            addTaskToList('taskInput2', 'taskList2');
+        });
+
+        document.getElementById('addTask3').addEventListener('click', function() {
+            addTaskToList('taskInput3', 'taskList3');
+        });
+    </script>
+</body>
+</html>
